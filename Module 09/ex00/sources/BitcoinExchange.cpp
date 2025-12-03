@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdedola <rdedola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rdedola <rdedola@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 12:57:20 by rdedola           #+#    #+#             */
-/*   Updated: 2025/12/03 16:24:02 by rdedola          ###   ########.fr       */
+/*   Updated: 2025/12/03 22:17:46 by rdedola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ std::string	to_string98(unsigned long value)
 void	Bitcoin::parseInput(const std::string &input)
 {
 	std::ifstream	file(input.c_str());
-	unsigned int	linePos = 2;
 	std::string		buffer;
+	unsigned int	linePos = 2;
 	char			*endPtr;
 	bool			isLeapYear = false;
 	
@@ -89,24 +89,21 @@ void	Bitcoin::parseInput(const std::string &input)
 			throw (std::runtime_error("Error: wrong day -> " + to_string98(day) + std::string(" line: ") + to_string98(linePos)));
 
 		// Leap year handler
-		if (month == 2 && day == 29 && (year % 4 || year % 100))
+		if (year % 4 || year % 100)
 			isLeapYear = true;
+		if (month == 2 && day == 29 && !isLeapYear)
+			throw (std::runtime_error("Error: your month can contain only 28" + std::string(" line: ") + to_string98(linePos)));
 
-
-
-		// 28 || 30 || 31 days/month handler
+		// 30 || 31 days/month handler
 		if (day == 31 && (month == 2 || month == 4 || month == 6 || month == 9 || month == 11))
 		{
 			if (month == 2 && !isLeapYear)
-				throw (std::runtime_error("Error: your month can contain only 28"));
+				throw (std::runtime_error("Error: your month can contain only 28" + std::string(" line: ") + to_string98(linePos)));
 			else if (month == 2)
-				throw (std::runtime_error("Error: your month can contain only 29"));
+				throw (std::runtime_error("Error: your month can contain only 29" + std::string(" line: ") + to_string98(linePos)));
 			else
-				throw (std::runtime_error("Error: your month can contain only 30"));
+				throw (std::runtime_error("Error: your month can contain only 30" + std::string(" line: ") + to_string98(linePos)));
 		}
-		
-		
-		
 			++linePos;
 	}
 }
