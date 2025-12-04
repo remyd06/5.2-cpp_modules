@@ -6,7 +6,7 @@
 /*   By: rdedola <rdedola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 12:47:25 by rdedola           #+#    #+#             */
-/*   Updated: 2025/12/03 15:52:20 by rdedola          ###   ########.fr       */
+/*   Updated: 2025/12/04 15:29:41 by rdedola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class	Bitcoin
 		~Bitcoin();
 
 		void	parseInput(const std::string &input);
+		void	parseDb(const std::string &fileame);
 		
 	private:
 		std::map<std::string, std::string>	_map;
