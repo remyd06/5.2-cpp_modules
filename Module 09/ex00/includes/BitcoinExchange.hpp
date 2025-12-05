@@ -6,7 +6,7 @@
 /*   By: rdedola <rdedola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 12:47:25 by rdedola           #+#    #+#             */
-/*   Updated: 2025/12/05 13:44:50 by rdedola          ###   ########.fr       */
+/*   Updated: 2025/12/05 15:27:51 by rdedola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,5 @@ class	Bitcoin
 		void	parseDb();
 		
 	private:
-		std::map<std::string, std::string>	_map;
 		std::map<std::string, std::string>	_map_csv;
 };
