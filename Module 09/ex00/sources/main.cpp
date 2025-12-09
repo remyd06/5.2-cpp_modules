@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdedola <rdedola@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rdedola <rdedola@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 10:26:58 by rdedola           #+#    #+#             */
-/*   Updated: 2025/12/04 12:00:55 by rdedola          ###   ########.fr       */
+/*   Updated: 2025/12/09 13:42:53 by rdedola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int	main(int argc, char **argv)
 	{
 		std::cerr << RED2 << e.what() << RESET << std::endl;
 	}
+	return (0);
 	
 }
