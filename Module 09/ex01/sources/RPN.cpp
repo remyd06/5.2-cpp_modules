@@ -6,7 +6,7 @@
 /*   By: rdedola <rdedola@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:55:54 by rdedola           #+#    #+#             */
-/*   Updated: 2026/01/12 13:55:54 by rdedola          ###   ########.fr       */
+/*   Updated: 2026/01/14 10:57:37 by rdedola          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ RPN::RPN(const std::string &input)
 {
     for (unsigned int i = 0; i < input.size(); ++i)
     {
-        while (input[i] == ' ' && i < input.size() - 1)
-            i++;
+        if (input[i] == ' ')
+            continue ;
 
         if (std::isdigit(input[i]))
         {
@@ -63,20 +63,20 @@ RPN::RPN(const std::string &input)
                             throw (std::runtime_error("Error: divison by 0."));
                         res = int2 / int1; break;
                     }
-                    
+
                 }
                 st.push(res);
             }
             else
-                throw (std::runtime_error("Error: invalid input.2"));
+                throw (std::runtime_error("Error: invalid input."));
         }
         else
         {
-            throw (std::runtime_error("Error: invalid input.3"));
+            throw (std::runtime_error("Error: invalid input."));
         }
     }
     if (st.size() != 1)
-        throw (std::runtime_error("Error: invalid input.4"));
+        throw (std::runtime_error("Error: invalid input."));
     else
         std::cout << st.top() << std::endl;
 }
