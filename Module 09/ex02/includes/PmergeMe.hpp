@@ -19,19 +19,23 @@
 # include <cstring>
 # include <vector>
 # include <deque>
+# include <utility>
+# include <ctime>
+# include <iomanip>
 
 template <typename C>
-class	PmergeMe
+class PmergeMe
 {
-	public:
-		PmergeMe();
-		PmergeMe(const char **argv);
-		PmergeMe(const PmergeMe &copy);
-		PmergeMe	&operator=(const PmergeMe &copy);
-		~PmergeMe();
+public:
+	PmergeMe();
+	PmergeMe(const char **argv);
+	PmergeMe(const PmergeMe &copy);
+	PmergeMe &operator=(const PmergeMe &copy);
+	~PmergeMe();
 
-		void	printContainer();
+	void printContainer();
+	void parser(const char **argv);
 
-	private:
-		C	_container;
+private:
+	C _container;
 };
